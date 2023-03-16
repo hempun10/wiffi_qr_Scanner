@@ -12,15 +12,22 @@ const fetchRequest = (formData,file) => {
     fetch("http://api.qrserver.com/v1/read-qr-code/",{
         method: 'POST',body:formData
     }).then(res =>res.json()).then(result=>{
-        result = (result[0].symbol[0].data);
+        // result = (result[0].symbol[0].data);
+        result = result[0].symbol[0].data.replace(/;/g, ';\n');
         // console.log(result);
-        infoText.innerHTML= result? "Upload to QR Code Scan":"Couldn't Scan QR Code";
+         result = result
+        .replace(/S:/g, 'Name: ')
+        .replace(/T:/g, 'Security: ')
+        .replace(/P:/g, 'Password: ')
+        .replace(/H:/g, 'Connection: ')
+
+        infoText.innerHTML= result? "Upload to QR Code Scan....":"Couldn't Scan QR Code.Try Again :)";
         if(!result) return; //Adding Validation for Checking whether it's a qr or not
         wrapper.querySelector('textarea').innerHTML=result;
         form.querySelector('img').src=URL.createObjectURL(file);
         wrapper.classList.add('active');
     }).catch(()=>{ //Catch method will run if there are any erro during requesting API
-        infoText.innerHTML="Couldn't Scan QR Code"; 
+        infoText.innerHTML="Couldn't Scan QR Code.Try Again :)"; 
     })
 }
 form.addEventListener('change', (e) => {

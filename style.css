@@ -7,6 +7,8 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+  list-style: none;
 }
 :root{
     --primary-color: #0b85ff;
@@ -14,11 +16,17 @@
     --third-color: #fff;
 }
 body{
+    height: 100vh;
+    overflow: hidden;
+}
+.container{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background: var(--secondary-color);
+    position: relative;
 }
 .wrapper{
     height: 270px;
@@ -105,4 +113,32 @@ button{
     font-size: 16px;
     font-weight: 500;
     cursor: pointer;
+}
+#author{
+    position: absolute;
+    bottom: 0;
+    font-size: 1.2rem;
+}
+#author a{
+    color: #0b85ff;
+}
+#theme-setting{
+    position: absolute;
+    top: 4px;
+    right: 25px;
+}
+
+
+
+
+/* Media Queries  */
+@media only screen and (max-width: 600px){
+    html,body{
+        overflow: hidden;
+    }
+}
+@media only screen and (max-width: 320px){
+    .details textarea{
+        height: 151px;
+    }   
 }
