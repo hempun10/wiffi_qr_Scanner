@@ -16,8 +16,8 @@
   --third-color: rgb(0, 0, 0);
 }
 [data-theme="dark"] {
-  --primary-color: #B6EADA;
-  --secondary-color: #301E67;
+  --primary-color: #b6eada;
+  --secondary-color: #443c68;
   --third-color: rgb(255, 255, 255);
 }
 body {
@@ -125,6 +125,13 @@ button {
   font-size: 1.2rem;
   color: var(--third-color);
 }
+#repo {
+  position: absolute;
+  bottom: 0;
+  right: 15px;
+  font-size: 1.2rem;
+  color: var(--third-color);
+}
 #author a {
   color: var(--primary-color);
 }
@@ -211,6 +218,15 @@ button {
   /* line-height: 34px; */
 }
 
+body > a{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  text-decoration: none;
+  color: #0000cc;
+}
 /* Media Queries  */
 @media only screen and (max-width: 600px) {
   html,

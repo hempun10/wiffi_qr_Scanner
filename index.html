@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,15 +10,16 @@
     <link rel="shortcut icon" href="fav.avif" type="image/x-icon">
     <!-- Box Icons  -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-    
+
 </head>
+
 <body>
     <!-- Dark Mode Switch -->
     <div class="theme-switch-wrapper">
         <span id="toogle-icon">
             <i class='bx bx-sun'></i>
         </span>
-        <label  class="theme-switch">
+        <label class="theme-switch">
             <input type="checkbox" id="checkbox">
             <div class="slider round">
 
@@ -25,26 +27,29 @@
         </label>
     </div>
     <div class="container">
-    <div class="wrapper">
-        <form action="#">
-            <input type="file" hidden id="get-file">
-            <img src="" alt="img">
-            <div class="content">
-                <i class='bx bx-upload'></i>
-                <p>Upload Your WIFI QR Code to Scan</p>
-            </div>
-        </form>
-        <div class="details">
-            <textarea name="detail" id="detail_area"disabled></textarea>
-            <div class="buttons">
-                <button class="close">Close</button>
-                <button class="copy">Copy</button>
+        <div class="wrapper">
+            <form action="#">
+                <input type="file" hidden id="get-file">
+                <img src="" alt="img">
+                <div class="content">
+                    <i class='bx bx-upload'></i>
+                    <p>Upload Your WIFI QR Code to Scan</p>
+                </div>
+            </form>
+            <div class="details">
+                <textarea name="detail" id="detail_area" disabled></textarea>
+                <div class="buttons">
+                    <button class="close">Close</button>
+                    <button class="copy">Copy</button>
+                </div>
             </div>
         </div>
+        <p id="author"> Made With ❤️ by <a href="https://hembdrpun.com.np" target="_blank">Hem Pun</a></p>
+        <a href="https://github.com/hempun10/wiffi_qr_Scanner" target="_blank" id=""><img
+                style="position: absolute; top: 0; left: 0; border: 0;" src="Git.png" alt="Fork me on GitHub"></a>
     </div>
-   <p id="author"> Made With ❤️ by <a href="https://hembdrpun.com.np" target="_blank">Hem Pun</a></p>
-</div>
     <script src="index.js"></script>
-    
+
 </body>
+
 </html>
