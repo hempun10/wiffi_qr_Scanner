@@ -9,7 +9,7 @@ const fetchRequest = (formData,file) => {
     infoText.innerHTML="Scanning QR Code...."
     //Sending post request to qr server api with passing
     //formData object as body and getting response from it
-    fetch("http://api.qrserver.com/v1/read-qr-code/",{
+    fetch("https://api.qrserver.com/v1/read-qr-code/",{
         method: 'POST',body:formData
     }).then(res =>res.json()).then(result=>{
         // result = (result[0].symbol[0].data);
