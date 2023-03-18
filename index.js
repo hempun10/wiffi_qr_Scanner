@@ -1,9 +1,11 @@
 const wrapper = document.querySelector('.wrapper'),
         form = document.querySelector('form'),
-        input = document.querySelector('input'),
+        input = document.querySelector('#get-file'),
         infoText = form.querySelector('p'),
         copyBtn = wrapper.querySelector('.copy'),
-        closeBtn = wrapper.querySelector('.close');
+        closeBtn = wrapper.querySelector('.close'),
+        toogleSwitch =document.querySelector('#checkbox'),
+        toggleIcon = document.querySelector('#toogle-icon');
 
 const fetchRequest = (formData,file) => {
     infoText.innerHTML="Scanning QR Code...."
@@ -21,7 +23,7 @@ const fetchRequest = (formData,file) => {
         .replace(/P:/g, 'Password: ')
         .replace(/H:/g, 'Connection: ')
 
-        infoText.innerHTML= result? "Upload to QR Code Scan....":"Couldn't Scan QR Code.Try Again :)";
+        infoText.innerHTML= result? "Upload  QR Code to Scan....":"Couldn't Scan QR Code.Try Again :)";
         if(!result) return; //Adding Validation for Checking whether it's a qr or not
         wrapper.querySelector('textarea').innerHTML=result;
         form.querySelector('img').src=URL.createObjectURL(file);
@@ -46,3 +48,43 @@ copyBtn.addEventListener('click', () => {
 form.addEventListener('click', () => input.click());
 
 closeBtn.addEventListener('click', () => wrapper.classList.remove('active'));
+
+
+
+// DarkMode
+const darkMode =() =>{
+    toggleIcon.children[0].classList.replace('bx-sun','bx-moon')
+}
+
+// Light Mode
+const lightMode =() =>{
+    toggleIcon.children[0].classList.replace('bx-moon','bx-sun')
+    // console.log(toggleIcon);
+}
+
+
+// Switch Theme Dynamically 
+const switchTheme =(key)=>{
+    if(key.target.checked){
+        document.documentElement.setAttribute('data-theme','dark')
+        localStorage.setItem('theme','dark')
+        darkMode();
+    }else{
+        document.documentElement.setAttribute('data-theme','light')
+        localStorage.setItem('theme','light')
+        lightMode();
+    }
+}
+
+// Event Listner For Day Night Toogle
+toogleSwitch.addEventListener('change',switchTheme);
+
+//Check Local Storage For theme
+const currentTheme = localStorage.getItem('theme')
+if(currentTheme){
+    document.documentElement.setAttribute('data-theme', currentTheme)
+    if(currentTheme === 'dark'){
+        toogleSwitch.checked = true;
+        darkMode();
+    }
+}
